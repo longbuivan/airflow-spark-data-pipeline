@@ -12,16 +12,26 @@ This project contains the following containers:
 
 ![](./doc/architect-design.png "Architecture")
 
+## Source Tree
+
+![](./doc/components-design.png "Components")
+
 ## Setup image which are not include in project OR you can clone from Docker Hub
+
 * Build Airflow Docker
 * Build Jupyter docker
-* Start containers
+* Start containers as below
+![](./doc/infrastructure.png "Infrastructure")
 
 ## Start project
+
+* Making sure you build docker image of airflow and spark.
+* Run docker container by command line below:
     $ docker-compose up -d
 
 ## Check if you can access
-Airflow: http://localhost:8282
+
+Airflow: http://localhost:8282 , set default_spark Connection in Airflow to spark://spark and port 7077
 Spark Master: http://localhost:8181
 PostgreSql - Database Test:
 * Server: localhost:5432
@@ -37,3 +47,7 @@ Postgres - Database airflow:
 
 Notes: Access jupyter-spark via "inspect container with CLI below"
     $ docker logs -f docker_jupyter-spark_1
+    
+## Documentation:
+
+You can use a full of my presentation in doc folder
