@@ -47,7 +47,7 @@ services:
 
   # Spark with 3 workers
   spark:
-    image: bitnami/spark:3.1.1
+    image: bitnami/spark:3.1.2
     user: root
     hostname: spark
     networks:
@@ -66,7 +66,7 @@ services:
       - "7077:7077"
 
   spark-worker-1:
-    image: bitnami/spark:3.1.1
+    image: bitnami/spark:3.1.2
     user: root
     networks:
       - default_net
@@ -83,44 +83,27 @@ services:
       - ../spark/app:/usr/local/spark/app
       - ../spark/resources:/usr/local/spark/resources
 
-  # spark-worker-2:
-  #   image: bitnami/spark:3.0.1
-  #   user: root
-  #   networks:
-  #     - default_net
-  #   environment:
-  #     - SPARK_MODE=worker
-  #     - SPARK_MASTER_URL=spark://spark:7077
-  #     - SPARK_WORKER_MEMORY=1G
-  #     - SPARK_WORKER_CORES=1
-  #     - SPARK_RPC_AUTHENTICATION_ENABLED=no
-  #     - SPARK_RPC_ENCRYPTION_ENABLED=no
-  #     - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
-  #     - SPARK_SSL_ENABLED=no
-  #   volumes:
-  #     - ../spark/app:/usr/local/spark/app
-  #     - ../spark/resources:/usr/local/spark/resources
-  # spark-worker-3:
-  #   image: bitnami/spark:3.0.1
-  #   user: root
-  #   networks:
-  #     - default_net
-  #   environment:
-  #     - SPARK_MODE=worker
-  #     - SPARK_MASTER_URL=spark://spark:7077
-  #     - SPARK_WORKER_MEMORY=1G
-  #     - SPARK_WORKER_CORES=1
-  #     - SPARK_RPC_AUTHENTICATION_ENABLED=no
-  #     - SPARK_RPC_ENCRYPTION_ENABLED=no
-  #     - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
-  #     - SPARK_SSL_ENABLED=no
-  #   volumes:
-  #     - ../spark/app:/usr/local/spark/app
-  #     - ../spark/resources:/usr/local/spark/resources
+  spark-worker-2:
+    image: bitnami/spark:3.0.1
+    user: root
+    networks:
+      - default_net
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    volumes:
+      - ../spark/app:/usr/local/spark/app
+      - ../spark/resources:/usr/local/spark/resources
 
   #Jupyter notebook
   jupyter-spark:
-    image: jupyter/pyspark-notebook:spark-3.1.1
+    image: jupyter/pyspark-notebook:spark-3.1.2
     networks:
       - default_net
     ports:
