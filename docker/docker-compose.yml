@@ -110,9 +110,9 @@ services:
       - "8888:8888"
       - "4040-4080:4040-4080"
     volumes:
-      - ../notebooks:/home/longbv1/work/notebooks/ #developement folder
-      - ../spark/resources/data:/home/longbv1/work/data/
-      - ../spark/resources/jars:/home/longbv1/work/jars/
+      - ../notebooks:/home/work #developement folder
+      - ../spark/resources/data:/home/work/data/
+      - ../spark/resources/jars:/home/work/jars/
 
 networks:
   default_net:
